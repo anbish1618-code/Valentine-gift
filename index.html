@@ -135,6 +135,45 @@
       }, 300);
     }
   </script>
+<!-- Cute Last Page -->
+<div id="lastPage" style="text-align:center; padding:40px;">
+  <div class="teddy">🧸</div>
+  <h2>Will you be my Valentine forever? 💖</h2>
+  <button onclick="sayYes()" class="yesBtn">YES 💘</button>
+  <p id="yesText"></p>
+</div>
 
+<style>
+.teddy {
+  font-size: 80px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.yesBtn {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+.yesBtn:hover {
+  background: #ff1e4d;
+}
+</style>
+
+<script>
+function sayYes() {
+  document.getElementById("yesText").innerHTML =
+    "Yayyy 😭💖 You are mine forever 🫂❤️";
+}
+</script>
 </body>
 </html>
