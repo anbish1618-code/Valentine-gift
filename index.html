@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e63950;
+    }
+
+    /* HEART ANIMATION */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page" id="page1" style="display:block;">
+    <h1>Hey ❤️</h1>
+    <p>I made something just for you</p>
+    <button onclick="nextPage(2)">Next ➡️</button>
+  </div>
+
+  <!-- PAGE 2 (YOUR PARAGRAPH) -->
+  <div class="page" id="page2">
+    <h1>💌</h1>
+    <p>
+      Happy Valentine's Day my love💖🦚  
+      I have made this little gift just for you😋  
+      I know this is very small for you but I think it will make you happy ☺️  
+      You are my valentine forever ❤️😘  
+      I am always there for you and I will never leave you babyy💘  
+      Sorry for all my mistakes and sorry for everytime I hurt you😭  
+      I never wanted to hurt you intentionally.  
+      And I loveeee youuuu a lottt and will always loveee youuuu moreeee🫂❤️😘
+    </p>
+    <button onclick="nextPage(3)">Next ➡️</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <h1>💖</h1>
+    <p>Just one last thing…</p>
+    <button onclick="nextPage(4); startHearts()">Tap 💘</button>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page" id="page4">
+    <h1>Will you be my Valentine forever? 💍</h1>
+    <button onclick="alert('You just made me the happiest 😭💖')">YES 💖</button>
+    <button onclick="alert('No option is only for decoration 🙈😂')">NO 🙈</button>
+  </div>
+
+  <script>
+    function nextPage(num) {
+      var pages = document.getElementsByClassName("page");
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = "none";
+      }
+      document.getElementById("page" + num).style.display = "block";
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
